@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
-import GameBoard from './components/GameBoard';
-import Result from './components/Result';
-import NotFound from './components/NotFound';
+import Home from './components/Pages/Home/';
+import GameBoard from './components/Pages/GameBoard/';
+import Result from './components/Pages/Result/';
+import NotFound from './components/Pages/NotFound/';
 
 class App extends Component {
   render() {
