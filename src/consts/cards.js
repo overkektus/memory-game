@@ -1,6 +1,5 @@
-const gameboardStore = {
-  cards: [
-    'alien',
+const cards = [
+  'alien',
     'angel',
     'broken-heart',
     'confused',
@@ -50,7 +49,6 @@ const gameboardStore = {
     'wondering',
     'yelling',
     'zombie',
-  ]
-}
+];
 
-export default gameboardStore;
+export default cards;

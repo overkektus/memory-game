@@ -13,6 +13,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Layout style={{ height: '-webkit-fill-available'}}>
         <Content className='home'>

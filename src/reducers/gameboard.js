@@ -1,11 +1,12 @@
-import { gameboardStore } from '../store/';
 import { START_GAME } from '../actions/actionsType';
 
-const gameboard = (state = gameboardStore, action) => {
+const gameboard = (state = {}, action) => {
   switch(action.type) {
     case START_GAME:
-
-      break;
+      return {
+        ...state,
+        gameboard: action.payload
+      };
     default:
       return state;
   }
