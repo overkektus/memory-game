@@ -1,0 +1,11 @@
+body {
+  font-family: 'Mali', cursive;
+}
+
+.ant-card-bordered {
+  border: none;
+}
+
+.ant-card-body {
+  padding: 5px;
+}

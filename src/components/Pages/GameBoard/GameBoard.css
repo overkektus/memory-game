@@ -1,11 +1,29 @@
-.game-board {
+.header {
   display: flex;
-  flex-direction: column;
+}
+
+.header__logo {
+  width: 75px;
+}
+
+.header__title {
+  color: wheat;
+}
+
+.game-board,
+.board {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .board {
-  display: flex;
   flex-wrap: wrap;
+  width: 810px;
+}
+
+@media(max-width: 820px) {
+  .board {
+    width: 405px;
+  }
 }
