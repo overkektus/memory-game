@@ -175,7 +175,12 @@ class PlayingCard extends Component {
           <div className="front">
           </div>
           <div className="back">
-            <img className='playing-card__img' src={cardImg} alt={this.props.cardType}/>
+            <img
+              className='playing-card__img'
+              src={cardImg}
+              draggable={false}
+              alt={this.props.cardType}
+            />
           </div>
         </div>
       </div>
