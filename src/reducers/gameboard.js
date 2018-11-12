@@ -1,12 +1,31 @@
-import { START_GAME } from '../actions/actionsType';
+import {
+  START_GAME,
+  START_OVERVIEW,
+  STOP_OVERVIEW,
+  CARD_CLICK
+} from '../actions/actionsType';
 
-const gameboard = (state = {}, action) => {
+const initialState = {
+  isOverlooked: false
+}
+
+const gameboard = (state = initialState, action) => {
   switch(action.type) {
     case START_GAME:
       return {
         ...state,
         gameboard: action.payload
       };
+    case START_OVERVIEW:
+      return {
+        ...state,
+        isOverlooked: !state.isOverlooked
+      }
+    case CARD_CLICK:
+      return {
+        ...state,
+        gameboard: action.payload
+      }
     default:
       return state;
   }

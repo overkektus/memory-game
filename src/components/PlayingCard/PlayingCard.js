@@ -54,26 +54,12 @@ import yelling from '../../assets/emoji/yelling.svg';
 import zombie from '../../assets/emoji/zombie.svg';
 
 class PlayingCard extends Component {
-  state = {
-    card: {
-      isFlipped: false
-    }
-  }
-
   handleCardClick = (event) => {
-    this.setState((state) => (
-      {
-        ...state,
-        card: {
-          ...state.card,
-          isFlipped: !state.card.isFlipped
-        }
-      }
-    ));
+    this.props.onClick(this.props.id);
   }
 
   render() {
-    const { cardType } = this.props;
+    const { cardType, isFlipped } = this.props;
     let cardImg;
     switch(cardType) {
       case 'alien':
@@ -181,13 +167,12 @@ class PlayingCard extends Component {
     }
     const cardClass = cx({
       card: true,
-      flipped: this.state.card.isFlipped
+      flipped: isFlipped
     });
     return (
       <div className="cardContainer">
         <div className={cardClass} onClick={this.handleCardClick}>
           <div className="front">
-
           </div>
           <div className="back">
             <img className='playing-card__img' src={cardImg} alt={this.props.cardType}/>

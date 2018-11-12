@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout, Card } from 'antd';
-import { startGame } from '../../../actions';
-import PlayingCard from '../../PlayingCard/';
+import { startOverview, startGame, cardClick } from '../../../actions';
+import PlayingCard from '../../PlayingCard';
 import logo from '../../../assets/collage.svg';
 import './GameBoard.css';
 
@@ -10,8 +10,18 @@ const { Header, Content, Footer } = Layout;
 
 class GameBoard extends Component {
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(startGame(18));
+    const { dispatch, gameboard, isOverlooked } = this.props;
+    if(!gameboard) {
+      dispatch(startGame(18));
+    }
+    if(!isOverlooked) {
+      dispatch(startOverview());
+    }
+  }
+
+  handleClickPlayingCard = (cardId) => {
+    const { dispatch, gameboard } = this.props;
+    dispatch(cardClick(cardId, gameboard));
   }
 
   render() {
@@ -22,7 +32,12 @@ class GameBoard extends Component {
     if(gameboard) {
       cards = gameboard.map(item => (
         <Card>
-          <PlayingCard cardType={item.type}/>
+          <PlayingCard
+            id={item.id}
+            cardType={item.type}
+            isFlipped={item.isFlipped}
+            onClick={this.handleClickPlayingCard}
+          />
         </Card>
       ));
     }
@@ -46,7 +61,8 @@ class GameBoard extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  gameboard: state.gameboard.gameboard
+  gameboard: state.gameboard.gameboard,
+  isOverlooked: state.gameboard.isOverlooked
 })
 
 export default connect(mapStateToProps)(GameBoard);
