@@ -21,6 +21,11 @@ const gameboard = (state = initialState, action) => {
         ...state,
         isOverlooked: !state.isOverlooked
       }
+    case STOP_OVERVIEW:
+      return {
+        ...state,
+        gameboard: action.payload
+      }
     case CARD_CLICK:
       return {
         ...state,

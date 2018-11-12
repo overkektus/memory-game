@@ -43,13 +43,32 @@ export const startOverview = () => {
   }
 }
 
-export const stopOverview = () => {
+export const stopOverview = (gameboard) => {
+  const newGameboard = gameboard.map(card => {
+    return {
+      ...card,
+      isFlipped: !card.isFlipped
+    }
+  });
   return {
-    type: STOP_OVERVIEW
+    type: STOP_OVERVIEW,
+    payload: newGameboard
   }
 }
 
 export const cardClick = (cardId, gameboard) => {
+  let flippedCount = 0;
+  gameboard.forEach(card => {
+    if(card.isFlipped) {
+      flippedCount++;
+    }
+  });
+
+  if(flippedCount > 0) {
+    console.log('fl')
+  } else {
+
+  }
   const newGameboard = gameboard.map(card => {
     if(card.id === cardId) {
       return {

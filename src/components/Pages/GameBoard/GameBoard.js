@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout, Card } from 'antd';
-import { startOverview, startGame, cardClick } from '../../../actions';
+import { startOverview, startGame, cardClick, stopOverview } from '../../../actions';
 import PlayingCard from '../../PlayingCard';
 import logo from '../../../assets/collage.svg';
 import './GameBoard.css';
@@ -16,6 +16,14 @@ class GameBoard extends Component {
     }
     if(!isOverlooked) {
       dispatch(startOverview());
+      const asyncStopOverview = () => {
+        return dispatch => {
+          setTimeout(() => {
+            dispatch(stopOverview(this.props.gameboard));
+          }, 5000);
+        }
+      }
+      dispatch(asyncStopOverview());
     }
   }
 
