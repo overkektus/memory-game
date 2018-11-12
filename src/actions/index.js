@@ -56,7 +56,7 @@ export const stopOverview = (gameboard) => {
   }
 }
 
-export const cardClick = (cardId, gameboard) => {
+export const cardClick = (cardId, gameboard, isFreezed) => {
   let flippedCount = 0;
   gameboard.forEach(card => {
     if(card.isFlipped) {
@@ -64,20 +64,21 @@ export const cardClick = (cardId, gameboard) => {
     }
   });
 
+  let newGameboard = Object.assign({}, gameboard);
   if(flippedCount > 0) {
-    console.log('fl')
-  } else {
-
+    console.log(newGameboard);
   }
-  const newGameboard = gameboard.map(card => {
-    if(card.id === cardId) {
+
+  newGameboard = gameboard.map(card => {
+    if(card.id === cardId && !isFreezed) {
       return {
         ...card,
         isFlipped: !card.isFlipped
       }
     }
     return card;
-  })
+  });
+
   return {
     type: CARD_CLICK,
     payload: newGameboard

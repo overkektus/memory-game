@@ -6,7 +6,8 @@ import {
 } from '../actions/actionsType';
 
 const initialState = {
-  isOverlooked: false
+  isOverlooked: false,
+  isFreezed: true
 }
 
 const gameboard = (state = initialState, action) => {
@@ -24,6 +25,7 @@ const gameboard = (state = initialState, action) => {
     case STOP_OVERVIEW:
       return {
         ...state,
+        isFreezed: false,
         gameboard: action.payload
       }
     case CARD_CLICK:

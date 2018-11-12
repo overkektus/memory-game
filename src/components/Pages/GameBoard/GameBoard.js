@@ -28,8 +28,8 @@ class GameBoard extends Component {
   }
 
   handleClickPlayingCard = (cardId) => {
-    const { dispatch, gameboard } = this.props;
-    dispatch(cardClick(cardId, gameboard));
+    const { dispatch, gameboard, isFreezed } = this.props;
+    dispatch(cardClick(cardId, gameboard, isFreezed));
   }
 
   render() {
@@ -70,7 +70,8 @@ class GameBoard extends Component {
 
 const mapStateToProps = (state) => ({
   gameboard: state.gameboard.gameboard,
-  isOverlooked: state.gameboard.isOverlooked
+  isOverlooked: state.gameboard.isOverlooked,
+  isFreezed: state.gameboard.isFreezed
 })
 
 export default connect(mapStateToProps)(GameBoard);
