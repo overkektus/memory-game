@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout, Card } from 'antd';
-import { startOverview, startGame, cardClick, stopOverview } from '../../../actions';
-import PlayingCard from '../../PlayingCard';
-import logo from '../../../assets/collage.svg';
-import './GameBoard.css';
+import { startOverview, startGame, cardClick, stopOverview } from 'actions';
+import PlayingCard from 'components/PlayingCard';
+import logo from 'assets/collage.svg';
+import './GameboardPage.css';
 
 const { Header, Content, Footer } = Layout;
 

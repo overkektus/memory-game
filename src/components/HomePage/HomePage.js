@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Layout } from 'antd';
-import PageFooter from '../../Footer/';
-import { startGame,  } from '../../../actions';
-import logo from '../../../assets/collage.svg';
-import './Home.css';
+import { startGame,  } from 'actions';
+import logo from 'assets/collage.svg';
+import './HomePage.css';
 
 const { Footer, Content } = Layout;
 
-class Home extends Component {
+class HomePage extends Component {
   handleStartGameButton = (event) => {
     const { history } = this.props;
     history.push('/gameboard');
@@ -38,4 +37,4 @@ class Home extends Component {
   }
 }
 
-export default connect()(Home);
+export default connect()(HomePage);
