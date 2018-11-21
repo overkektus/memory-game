@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
-import { Anchor } from 'antd';
+import { Icon } from 'antd';
 import './Footer.css';
 
-const { Link } = Anchor;
-
-class Footer extends Component {    
+class Footer extends Component {
   render() {
     return (
       <footer>
-        <Anchor className="anchor">
-          <p>Created by</p>
-          <Link href="https://github.com/overkektus" title="overkektus"/>
-        </Anchor>
+        <ul>
+          <li>
+            <a href='https://github.com/overkektus'>
+              <Icon type='github' />
+            </a>
+          </li>
+          <li>
+            <a href='https://www.linkedin.com/in/egor-piskunov-a7853a142/'>
+              <Icon width='2em' type='linkedin' />
+            </a>
+          </li>
+        </ul>
       </footer>
     );
   }
 }
- 
+
 export default Footer;

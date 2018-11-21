@@ -1,28 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers';
-import App from './App';
+import { ConnectedRouter } from 'connected-react-router';
+import { renderRoutes } from 'react-router-config';
+import routes from './routes';
+import configureStore, { history } from './store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-const middleware = [
-  thunk,
-];
-
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(
-    applyMiddleware(...middleware)
-  )
-);
+const store = configureStore();
 
 render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>{renderRoutes(routes)}</ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );
