@@ -11,11 +11,6 @@ const initialState = {
 
 const reducer = createReducer({}, initialState);
 
-const flipCard = createAction(`${NS}FLIP_CARD`);
-reducer.on(flipCard, (state, id) => ({
-  ...state,
-}));
-
 const setGameboard = createAction(`${NS}SET_GAMEBOARD`);
 reducer.on(setGameboard, (state, gameboard) => ({
   ...state,
@@ -48,6 +43,28 @@ export const startGame = (count) => (dispatch) => {
 
   dispatch(setGameboard(gameboardShuffled));
 };
+
+const setOverviewedBoard = createAction(`${NS}STOP_OVERVIEW`);
+reducer.on(setOverviewedBoard, (state, gameboard) => ({
+  ...state,
+  gameboard,
+  isOverlooked: true
+}));
+
+export const stopOverview = (gameboard) => (dispatch) => {
+  const flippedGameboard = gameboard.map(card => {
+    return {
+      ...card,
+      isFlipped: !card.isFlipped
+    }
+  });
+  dispatch(setOverviewedBoard(flippedGameboard));
+};
+
+const flipCard = createAction(`${NS}FLIP_CARD`);
+reducer.on(flipCard, (state, id) => ({
+  ...state,
+}));
 
 export const clickCard = (gameboard, id) => (dispatch) => {
 

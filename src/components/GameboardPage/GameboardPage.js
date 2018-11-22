@@ -1,44 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout, Card } from 'antd';
-import { startOverview, cardClick, stopOverview } from 'actions';
 import { dispatch } from 'store';
-import { startGame } from 'ducks/gameboard';
+import { startGame, stopOverview } from 'ducks/gameboard';
 import Footer from 'components/Footer';
 import PlayingCard from 'components/PlayingCard';
 import logo from 'assets/collage.svg';
 import './GameboardPage.css';
 
-const { Header, Content, Footer: AntdFooter } = Layout;
+const { Header, Content } = Layout;
 
 class GameBoard extends Component {
   componentDidMount() {
-    const { gameboard, isOverlooked } = this.props;
-    console.log(gameboard);
+    const { gameboard } = this.props;
     if(!gameboard) {
       dispatch(startGame(18));
     }
-    // if(!isOverlooked) {
-    //   dispatch(startOverview());
-    //   const asyncStopOverview = () => {
-    //     return dispatch => {
-    //       setTimeout(() => {
-    //         dispatch(stopOverview(this.props.gameboard));
-    //       }, 5000);
-    //     }
-    //   }
-    //   dispatch(asyncStopOverview());
-    // }
   }
 
   handleClickPlayingCard = (cardId) => {
     const { dispatch, gameboard, isFreezed } = this.props;
-    dispatch(cardClick(cardId, gameboard, isFreezed));
+    // dispatch(cardClick(cardId, gameboard, isFreezed));
   }
 
   render() {
-    const { gameboard } = this.props;
-
+    const { gameboard, isOverlooked } = this.props;
     let cards = []
 
     if(gameboard) {
@@ -53,7 +39,17 @@ class GameBoard extends Component {
         </Card>
       ));
     }
-
+    console.log(isOverlooked)
+    if(gameboard && !isOverlooked) {
+      const asyncStopOverview = () => {
+        return dispatch => {
+          setTimeout(() => {
+            dispatch(stopOverview(gameboard));
+          }, 5000);
+        }
+      }
+      dispatch(asyncStopOverview());
+    }
     return (
       <Layout style={{ height: '-webkit-fill-available'}}>
         <Header className='header'>
