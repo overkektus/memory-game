@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Layout, Card } from 'antd';
+import { Layout } from 'antd';
 import { dispatch } from 'store';
 import { startGame, stopOverview } from 'ducks/gameboard';
 import Footer from 'components/Footer';
-import PlayingCard from 'components/PlayingCard';
+import Dashboard from './Dashboard';
+import Cards from './Cards';
 import logo from 'assets/collage.svg';
 import './GameboardPage.css';
 
@@ -25,21 +26,7 @@ class GameBoard extends Component {
 
   render() {
     const { gameboard, isOverlooked } = this.props;
-    let cards = []
 
-    if(gameboard) {
-      cards = gameboard.map(item => (
-        <Card>
-          <PlayingCard
-            id={item.id}
-            cardType={item.type}
-            isFlipped={item.isFlipped}
-            onClick={this.handleClickPlayingCard}
-          />
-        </Card>
-      ));
-    }
-    console.log(isOverlooked)
     if(gameboard && !isOverlooked) {
       const asyncStopOverview = () => {
         return dispatch => {
@@ -64,9 +51,10 @@ class GameBoard extends Component {
             height="20px">
           </iframe>
         </Header>
-        <Content className='game-board'>
-          <div className='board'>
-            {cards}
+        <Content style={{ display: 'flex', justifyContent: 'center'}}>
+          <div className='gameboard'>
+            <Dashboard />
+            <Cards />
           </div>
         </Content>
         <Footer/>
@@ -77,8 +65,7 @@ class GameBoard extends Component {
 
 const mapStateToProps = (state) => ({
   gameboard: state.gameboard.gameboard,
-  isOverlooked: state.gameboard.isOverlooked,
-  isFreezed: state.gameboard.isFreezed
-})
+  isOverlooked: state.gameboard.isOverlooked
+});
 
 export default connect(mapStateToProps)(GameBoard);

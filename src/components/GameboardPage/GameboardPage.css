@@ -14,20 +14,13 @@
   margin-left: 15px;
 }
 
-.game-board,
-.board {
+.gameboard {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.board {
-  flex-wrap: wrap;
+.gameboard {
+  flex-direction: column;
   width: 810px;
-}
-
-@media(max-width: 820px) {
-  .board {
-    width: 405px;
-  }
 }
