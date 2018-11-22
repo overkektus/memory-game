@@ -1,4 +1,10 @@
 .dashboard {
-  background-color: black;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  padding: 5px 15px;
+  background-color: white;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
