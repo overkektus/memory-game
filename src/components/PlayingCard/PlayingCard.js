@@ -55,7 +55,7 @@ import zombie from 'assets/emoji/zombie.svg';
 
 class PlayingCard extends Component {
   handleCardClick = (event) => {
-    this.props.onClick(this.props.id);
+    this.props.onClick();
   }
 
   render() {

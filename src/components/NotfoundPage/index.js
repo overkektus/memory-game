@@ -1,3 +1,3 @@
-import NotfoundPage from './NotfoundPage';
+import NotfoundPage from './NotfoundPage'
 
-export default NotfoundPage;
+export default NotfoundPage

@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux';
-import { connectRouter } from 'connected-react-router';
-import gameboard from './gameboard';
+import { combineReducers } from 'redux'
+import { connectRouter } from 'connected-react-router'
+import gameboard from './gameboard'
 
-const reducer = (history) => {
+const reducer = history => {
   return combineReducers({
     router: connectRouter(history),
-    gameboard
-  });
-};
+    gameboard,
+  })
+}
 
-export default reducer;
+export default reducer

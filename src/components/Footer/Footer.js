@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import { Icon } from 'antd';
-import './Footer.css';
+import React, { Component } from 'react'
+import githubLogo from 'assets/socials/github.svg'
+import linkedinLogo from 'assets/socials/linkedin.svg'
+import './Footer.css'
 
 class Footer extends Component {
   render() {
     return (
       <footer>
-        <ul>
-          <li>
-            <a href='https://github.com/overkektus'>
-              <Icon type='github' />
+        <ul className="footer__socials">
+          <li className="footer__social-item">
+            <a href="https://github.com/overkektus">
+              <img className="footer__social-logo" src={githubLogo} alt="github logo" />
             </a>
           </li>
-          <li>
-            <a href='https://www.linkedin.com/in/egor-piskunov-a7853a142/'>
-              <Icon width='2em' type='linkedin' />
+          <li className="footer__social-item">
+            <a href="https://www.linkedin.com/in/egor-piskunov-a7853a142/">
+              <img className="footer__social-logo" src={linkedinLogo} alt="linkedin logo" />
             </a>
           </li>
         </ul>
       </footer>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

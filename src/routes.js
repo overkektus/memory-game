@@ -1,8 +1,8 @@
-import App from 'components/App';
-import HomePage from 'components/HomePage';
-import GameboardPage from 'components/GameboardPage';
-import ResultPage from 'components/ResultPage';
-import NotfoundPage from 'components/NotfoundPage';
+import App from 'components/App'
+import HomePage from 'components/HomePage'
+import GameboardPage from 'components/GameboardPage'
+import ResultPage from 'components/ResultPage'
+import NotfoundPage from 'components/NotfoundPage'
 
 const routes = [
   {
@@ -11,22 +11,22 @@ const routes = [
       {
         path: '/',
         exact: true,
-        component: HomePage
+        component: HomePage,
       },
       {
         path: '/gameboard',
-        component: GameboardPage
+        component: GameboardPage,
       },
       {
         path: '/result',
-        component: ResultPage
+        component: ResultPage,
       },
       {
         path: '/*',
-        component: NotfoundPage
-      }
-    ]
-  }
+        component: NotfoundPage,
+      },
+    ],
+  },
 ]
 
 export default routes

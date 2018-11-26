@@ -1,3 +1,3 @@
-import ResultPage from './ResultPage';
+import ResultPage from './ResultPage'
 
-export default ResultPage;
+export default ResultPage

@@ -1,3 +1,12 @@
-.anchor {
+.footer__socials {
   display: flex;
+  list-style-type: none;
+}
+
+.footer__social-item {
+  margin-right: 10px;
+}
+
+.footer__social-logo {
+  width: 32px;
 }
