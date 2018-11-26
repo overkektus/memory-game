@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Button, Layout } from 'antd'
+import { push } from 'connected-react-router'
 import { dispatch } from 'store'
 import { startGame } from 'ducks/gameboard'
+import { Button, Layout } from 'antd'
 import ForkMeLink from './ForkMeLink'
 import logo from 'assets/collage.svg'
 import './HomePage.css'
@@ -10,9 +11,7 @@ const { Content } = Layout
 
 class HomePage extends Component {
   handleStartGameButton = event => {
-    const { history } = this.props
-    history.push('/gameboard')
-
+    dispatch(push('/gameboard'))
     dispatch(startGame(18))
   }
 
