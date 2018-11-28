@@ -3,7 +3,7 @@ import { push } from 'connected-react-router'
 import { dispatch } from 'store'
 import { startGame } from 'ducks/gameboard'
 import { Button, Layout } from 'antd'
-import ForkMeLink from './ForkMeLink'
+import ForkMeLink from 'components/ForkMeLink'
 import logo from 'assets/collage.svg'
 import './HomePage.css'
 

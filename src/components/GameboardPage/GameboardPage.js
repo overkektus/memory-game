@@ -34,16 +34,8 @@ class GameBoard extends Component {
     return (
       <Layout style={{ height: '-webkit-fill-available' }}>
         <Header className="header">
-          <img className="header__logo" src={logo} alt="logo" />
+          <img className="header__logo" draggable={false} src={logo} alt="logo" />
           <h1 className="header__title">Memory Game</h1>
-          <iframe
-            title="github stars button"
-            src="https://ghbtns.com/github-btn.html?user=overkektus&repo=memory-game&type=star&count=true&size=medium"
-            frameBorder="0"
-            scrolling="0"
-            width="120px"
-            height="20px"
-          />
         </Header>
         <Content style={{ display: 'flex', justifyContent: 'center' }}>
           <div className="gameboard">

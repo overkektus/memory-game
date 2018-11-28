@@ -1,4 +1,5 @@
 import React from 'react'
+import './ForkMeLink.css'
 
 const ForkMeLink = () => (
   <a href="https://github.com/you">

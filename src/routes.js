@@ -2,7 +2,7 @@ import App from 'components/App'
 import HomePage from 'components/HomePage'
 import GameboardPage from 'components/GameboardPage'
 import ResultPage from 'components/ResultPage'
-import NotfoundPage from 'components/NotfoundPage'
+import NotFoundPage from 'components/NotFoundPage'
 
 const routes = [
   {
@@ -23,7 +23,7 @@ const routes = [
       },
       {
         path: '/*',
-        component: NotfoundPage,
+        component: NotFoundPage,
       },
     ],
   },
