@@ -10,6 +10,7 @@ const initialState = {
   isOverlooked: false,
   isFreeze: true,
   score: 0,
+  time: 0,
 }
 
 const reducer = createReducer({}, initialState)
@@ -29,7 +30,6 @@ export const startGame = count => dispatch => {
       isGuessed: false,
     })
   }
-
   const cardsIndex = []
   for (let i = 0; i < count / 2; i++) {
     let cardIndex = random(0, cardTypes.length - 1)
@@ -37,13 +37,10 @@ export const startGame = count => dispatch => {
   }
   const cardsIndexCopy = map(cardsIndex, clone)
   const fullCardsIndex = cardsIndex.concat(cardsIndexCopy)
-
   for (let i = 0; i < fullCardsIndex.length; i++) {
     gameboard[i].type = cardTypes[fullCardsIndex[i]]
   }
-
   const gameboardShuffled = shuffle(gameboard)
-
   dispatch(setGameboard(gameboardShuffled))
 }
 
@@ -136,19 +133,21 @@ export const clickCard = cardId => (dispatch, getState) => {
     dispatch(flipCard(cardId))
   }
   gameboard = getState().gameboard.gameboard
+  const { score } = getState().gameboard
   countUnguessedFlipped = countingUnguessedFlipped(gameboard)
   if (countUnguessedFlipped === 2) {
     const flipped = getUnguessedFlipped(gameboard)
     const isEqual = compare(flipped)
     if (isEqual) {
       const countUnGuessed = countingUnGuessedPair(gameboard)
-      const newScore = countUnGuessed * coefficient
+      const newScore = score + countUnGuessed * coefficient
       dispatch(setScore(newScore))
       const newGameboard = markGuessed(gameboard, flipped)
       dispatch(setGameboard(newGameboard))
     } else {
       const countGuessed = countingGuessedPair(gameboard)
-      const newScore = countGuessed * coefficient
+      const newScore = score - countGuessed * coefficient
+      console.log(newScore)
       dispatch(setScore(newScore))
       setTimeout(() => flipped.forEach(card => dispatch(flipCard(card.id))), reviewTimeout)
     }
