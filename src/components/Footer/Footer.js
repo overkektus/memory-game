@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import githubLogo from 'assets/socials/github.svg'
-import linkedinLogo from 'assets/socials/linkedin.svg'
+import githubLogo from 'src/assets/socials/github.svg'
+import linkedinLogo from 'src/assets/socials/linkedin.svg'
 import './Footer.css'
 
 class Footer extends Component {

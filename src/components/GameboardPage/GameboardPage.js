@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Layout } from 'antd'
-import { dispatch } from 'store'
-import { startGame, stopOverview } from 'ducks/gameboard'
+import { dispatch } from 'src/store'
+import { startGame, stopOverview } from 'src/ducks/gameboard'
 import Footer from 'components/Footer'
 import Dashboard from './Dashboard'
 import Cards from './Cards'
-import logo from 'assets/collage.svg'
+import logo from 'src/assets/collage.svg'
 import './GameboardPage.css'
 
 const { Header, Content } = Layout
@@ -26,7 +26,7 @@ class GameBoard extends Component {
         return dispatch => {
           setTimeout(() => {
             dispatch(stopOverview(gameboard))
-          }, 2500)
+          }, 5000)
         }
       }
       dispatch(asyncStopOverview())
@@ -35,7 +35,9 @@ class GameBoard extends Component {
       <Layout style={{ height: '-webkit-fill-available' }}>
         <Header className="header">
           <img className="header__logo" draggable={false} src={logo} alt="logo" />
-          <h1 className="header__title">Memory Game</h1>
+          <a href="/">
+            <h1 className="header__title">Memory Game</h1>
+          </a>
         </Header>
         <Content style={{ display: 'flex', justifyContent: 'center' }}>
           <div className="gameboard">

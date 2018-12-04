@@ -1,7 +1,7 @@
 import { createAction, createReducer } from 'redux-act'
 import { push } from 'connected-react-router'
 import { map, clone, shuffle, random } from 'lodash'
-import cardTypes from 'consts/cards'
+import cardTypes from 'src/consts/cards'
 
 export const REDUCER = 'CARDS'
 const NS = `${REDUCER}__`
@@ -27,6 +27,7 @@ export const startGame = count => dispatch => {
     gameboard.push({
       id: i,
       isFlipped: true,
+      isFreeze: false,
       isGuessed: false,
     })
   }
@@ -43,6 +44,15 @@ export const startGame = count => dispatch => {
   const gameboardShuffled = shuffle(gameboard)
   dispatch(setGameboard(gameboardShuffled))
 }
+
+export const resetGame = createAction(`${NS}RESET_GAME`)
+reducer.on(resetGame, state => ({
+  ...state,
+  isOverlooked: false,
+  isFreeze: false,
+  score: 0,
+  time: 0,
+}))
 
 const setOverviewedBoard = createAction(`${NS}STOP_OVERVIEW`)
 reducer.on(setOverviewedBoard, (state, gameboard) => ({
@@ -147,7 +157,6 @@ export const clickCard = cardId => (dispatch, getState) => {
     } else {
       const countGuessed = countingGuessedPair(gameboard)
       const newScore = score - countGuessed * coefficient
-      console.log(newScore)
       dispatch(setScore(newScore))
       setTimeout(() => flipped.forEach(card => dispatch(flipCard(card.id))), reviewTimeout)
     }

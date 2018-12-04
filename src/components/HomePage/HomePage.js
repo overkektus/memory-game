@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { push } from 'connected-react-router'
-import { dispatch } from 'store'
-import { startGame } from 'ducks/gameboard'
+import { dispatch } from 'src/store'
+import { startGame } from 'src/ducks/gameboard'
 import { Button, Layout } from 'antd'
-import ForkMeLink from 'components/ForkMeLink'
-import logo from 'assets/collage.svg'
+import ForkMeLink from 'src/components/ForkMeLink'
+import logo from 'src/assets/collage.svg'
 import './HomePage.css'
 
 const { Content } = Layout
@@ -21,7 +21,9 @@ class HomePage extends Component {
         <Content className="home">
           <ForkMeLink />
           <img src={logo} alt="logo" />
-          <h1>Memory Game</h1>
+          <a href="/">
+            <h1>Memory Game</h1>
+          </a>
           <Button size="large" onClick={this.handleStartGameButton}>
             Start Game!
           </Button>
