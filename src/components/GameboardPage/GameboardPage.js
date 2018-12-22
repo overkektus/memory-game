@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Layout } from 'antd'
 import { dispatch } from 'src/store'
 import { startGame, stopOverview } from 'src/ducks/gameboard'
-import Footer from 'components/Footer'
+import Footer from 'src/components/Footer'
 import Dashboard from './Dashboard'
 import Cards from './Cards'
 import logo from 'src/assets/collage.svg'
@@ -23,7 +23,7 @@ class GameBoard extends Component {
     const { gameboard, isOverlooked } = this.props
     if (gameboard && !isOverlooked) {
       const asyncStopOverview = () => {
-        return dispatch => {
+        return (dispatch) => {
           setTimeout(() => {
             dispatch(stopOverview(gameboard))
           }, 5000)
@@ -51,7 +51,7 @@ class GameBoard extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   gameboard: state.gameboard.gameboard,
   isOverlooked: state.gameboard.isOverlooked,
 })

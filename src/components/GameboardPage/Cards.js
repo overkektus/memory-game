@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { dispatch } from 'store'
-import { clickCard } from 'ducks/gameboard'
+import { dispatch } from 'src/store'
+import { clickCard } from 'src/ducks/gameboard'
 import { Card } from 'antd'
-import PlayingCard from 'components/PlayingCard'
+import PlayingCard from 'src/components/PlayingCard'
 import './Cards.css'
 
 class Cards extends Component {
@@ -34,7 +34,7 @@ class Cards extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   gameboard: state.gameboard.gameboard,
   isFreeze: state.gameboard.isFreeze,
 })

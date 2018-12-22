@@ -1,8 +1,8 @@
-import App from 'components/App'
-import HomePage from 'components/HomePage'
-import GameboardPage from 'components/GameboardPage'
-import ResultPage from 'components/ResultPage'
-import NotFoundPage from 'components/NotFoundPage'
+import App from 'src/components/App'
+import HomePage from 'src/components/HomePage'
+import GameboardPage from 'src/components/GameboardPage'
+import ResultPage from 'src/components/ResultPage'
+import NotFoundPage from 'src/components/NotFoundPage'
 
 const routes = [
   {
