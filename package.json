@@ -19,9 +19,9 @@
     "react-router-config": "^4.4.0-beta.6",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
     "redux-act": "^1.7.4",
     "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.1.3"
   },
   "devDependencies": {
@@ -32,9 +32,9 @@
     "prettier": "^1.15.2",
     "pretty-quick": "^1.8.0",
     "prop-types": "^15.6.2",
-    "react-scripts": "2.1.1",
+    "react-app-rewire-less": "^2.1.3",
     "react-app-rewired": "^1.6.2",
-    "react-app-rewire-less": "^2.1.3"
+    "react-scripts": "2.1.1"
   },
   "scripts": {
     "start": "react-app-rewired start",
